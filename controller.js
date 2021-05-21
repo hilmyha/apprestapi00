@@ -11,9 +11,20 @@ exports.index = function (req, res) {
 exports.tampildatamhs = function (row, res) {
     connection.query('SELECT * FROM mahasiswa', function (error, rows, fileds) {
         if (error) {
-            connection.log(error);
+            console.log(error);
         } else {
-            response.ok(rows, res)
+            response.ok(rows, res);
+        }
+    });
+};
+
+// tampil berdasarkan ID
+exports.tampilid = function (row, res) {
+    connection.query('SELECT * FROM mahasiswa WHERE id = ?', [id], function (error, rows, fileds) {
+        if (error) {
+            console.log(error);
+        } else {
+            response.ok(rows, res);
         }
     });
 };
